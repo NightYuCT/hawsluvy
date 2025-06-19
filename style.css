@@ -11,3 +11,239 @@ header {
   font-size: 28px;
   font-weight: bold;
 }
+
+#dailyQuote, #countdown {
+  font-size: 18px;
+  margin: 10px 20px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #FFECEC;
+}
+nav button {
+  padding: 10px 15px;
+  font-size: 16px;
+  margin: 5px;
+  border: none;
+  background: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+nav button:hover,
+nav button.active {
+  background-color: #FFDCDC;
+}
+
+section {
+  display: none;
+  padding: 20px;
+}
+section.active {
+  display: block;
+}
+
+.photo-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+.photo-preview img {
+  width: 200px;
+  border-radius: 10px;
+  border: 2px solid #FFDCDC;
+}
+.photo-box {
+  position: relative;
+}
+.photo-box button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.file-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #FFB6C1, #FFD1DC);
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px 0;
+}
+.file-btn:hover {
+  opacity: 0.9;
+}
+
+button.save {
+  background: linear-gradient(135deg, #FF9AA2, #FFB6B9);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: 5px;
+}
+button.save:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #FF8A9E, #FFB0C0);
+}
+
+.fav-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.fav-left {
+  flex: 1;
+  min-width: 200px;
+}
+.fav-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.fav-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+#floatingPen {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #FF80AB;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 999;
+}
+.hidden {
+  display: none;
+}
+
+.diary-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.diary-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 15px;
+  position: relative;
+}
+.diary-card img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.comment-box {
+  margin-top: 10px;
+}
+.comment-box input {
+  width: 70%;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.comment-box button {
+  background: #FFB6C1;
+  border: none;
+  padding: 6px 10px;
+  margin-left: 5px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.comment-list p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+#calendarContainer {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+.calendar-day {
+  background: #fff0f5;
+  border: 1px solid #ffd6d6;
+  border-radius: 8px;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}
+.calendar-day:hover {
+  background: #ffe0eb;
+}
+.calendar-day.has-entry {
+  font-weight: bold;
+  background: #ffe6ee;
+  border: 2px solid #ff9aa2;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+.calendar-modal-box {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  width: 300px;
+  max-width: 90%;
+}
+.calendar-modal-box h3 {
+  margin-top: 0;
+}
+.calendar-modal-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+.calendar-modal-actions button {
+  padding: 5px 10px;
+  background: #FFB6C1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.calendar-modal-actions button:hover {
+  background: #FF8A9E;
+}
