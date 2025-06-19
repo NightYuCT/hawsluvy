@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>我還不知道要取甚麼</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+    import { getStorage } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCs3X8os7UbTEYrgap2gcEpeePFlS7s_ww",
+      authDomain: "love-42f97.firebaseapp.com",
+      projectId: "love-42f97",
+      storageBucket: "love-42f97.appspot.com",
+      messagingSenderId: "961778388933",
+      appId: "1:961778388933:web:e055a2cff4a2a6319f05ac",
+      measurementId: "G-ZJHQFE1302"
+    };
+
+    window.firebaseApp = initializeApp(firebaseConfig);
+    window.firebaseDB = getDatabase(firebaseApp);
+    window.firebaseStorage = getStorage(firebaseApp);
+  </script>
+</head>
+<body>
+<header>我還不知道要取甚麼</header>
+<section id="dailyQuote">🌤️ <span id="quoteText"></span></section>
+<section id="countdown">🎂 距離我們的重要日子：<span id="daysLeft"></span> 天</section>
+<nav>
+  <button class="tab-btn active" data-target="album">相簿</button>
+  <button class="tab-btn" data-target="diary">日記</button>
+  <button class="tab-btn" data-target="favorites">喜好</button>
+  <button class="tab-btn" data-target="calendar">回憶日曆</button>
+</nav>
+<section id="album" class="active">
+  <h2>📸 相簿</h2>
+  <label class="file-btn">📁 上傳圖片<input type="file" id="photoUpload" accept="image/*" multiple hidden></label>
+  <div class="photo-preview" id="photoPreview"></div>
+</section>
+<section id="diary">
+  <h2>📝 日記</h2>
+  <button id="floatingPen">✏️</button>
+  <div id="postForm" class="hidden">
+    <textarea id="diaryText" rows="3" placeholder="寫下今天的心情..."></textarea>
+    <label class="file-btn">📷 選擇日記圖片<input type="file" id="diaryPhoto" accept="image/*" multiple hidden></label>
+    <button class="save">發布</button>
+  </div>
+  <div id="diaryList" class="diary-feed"></div>
+</section>
+<section id="favorites">
+  <h2>💖 她的喜好</h2>
+  <div class="fav-container">
+    <div class="fav-left">
+      <div class="fav-row"><label for="favFoodInput">食物</label><input type="text" id="favFoodInput"><button class="save" onclick="addFavorite('food')">新增</button></div>
+      <div class="fav-row"><label for="favMusicInput">音樂</label><input type="text" id="favMusicInput"><button class="save" onclick="addFavorite('music')">新增</button></div>
+      <div class="fav-row"><label for="favMovieInput">電影</label><input type="text" id="favMovieInput"><button class="save" onclick="addFavorite('movie')">新增</button></div>
+    </div>
+    <div class="fav-right"><div id="favFoodList"></div><div id="favMusicList"></div><div id="favMovieList"></div></div>
+  </div>
+</section>
+<section id="calendar"><h2>📅 回憶日曆</h2><div id="calendarContainer"></div></section>
+<div class="modal" id="imgModal" onclick="this.style.display='none'"><img id="modalImg" src=""></div>
+<div class="modal" id="calendarModal">
+  <div class="calendar-modal-box">
+    <h3 id="calendarModalTitle">編輯日記</h3>
+    <textarea id="calendarNote" rows="4" placeholder="寫點什麼吧..."></textarea>
+    <div class="calendar-modal-actions">
+      <button onclick="saveCalendarNote()">儲存</button>
+      <button onclick="deleteCalendarNote()">刪除</button>
+      <button onclick="closeCalendarModal()">關閉</button>
+    </div>
+  </div>
+</div>
+<script type="module" src="script.js"></script>
+</body>
+</html>
